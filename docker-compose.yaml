@@ -43,7 +43,7 @@ services:
   test_1-module:
     build:
       context: ..
-      dockerfile: ./Dockerfile.test
+      dockerfile: ../module2/Dockerfile.test
       
     depends_on:
       - hub 
@@ -60,7 +60,7 @@ services:
   test_2-module:
     build:
       context: ..
-      dockerfile: ./Dockerfile.test
+      dockerfile: ../module2/Dockerfile.test
       
     depends_on:
       - hub 
