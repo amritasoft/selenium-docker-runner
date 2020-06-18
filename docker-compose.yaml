@@ -55,7 +55,7 @@ services:
       - BROWSER=chrome
       - MODULE=test_1.py
     volumes:
-      - ./module1:/usr/app
+      - ../module1:/usr/app
    
   test_2-module:
     build:
@@ -72,6 +72,6 @@ services:
       - BROWSER=firefox
       - MODULE=test_2.py
     volumes:
-      - ./module2:/usr/app
+      - ../module2:/usr/app
 
 
