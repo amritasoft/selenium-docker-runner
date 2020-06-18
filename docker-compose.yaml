@@ -42,7 +42,7 @@ services:
 
   test_1-module:
     build:
-      context: ../module1
+      context: ../module1/
       dockerfile: ../module1/Dockerfile.test
       
     depends_on:
@@ -55,7 +55,7 @@ services:
       - BROWSER=chrome
       - MODULE=test_1.py
     volumes:
-      - ../module1:/usr/app
+      - ../module1/:/usr/app/
    
   test_2-module:
     build:
