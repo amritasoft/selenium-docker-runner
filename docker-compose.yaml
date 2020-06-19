@@ -39,7 +39,7 @@ services:
       - /dev/shm:/dev/shm
 
   test_1:
-    image: C:\ProgramData\DockerDesktop\vm-data\myimage:latest
+    image: myimage:latest
     depends_on:
     - hub 
     - firefox
@@ -49,7 +49,7 @@ services:
     - BROWSER=chrome
     - MODULE=test_1.py
     volumes:
-      - ./test_1:/usr/app/
+      - .:/usr/app/
   test_2:
     image: myimage:latest
     depends_on:
