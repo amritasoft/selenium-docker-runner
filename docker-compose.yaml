@@ -1,5 +1,6 @@
 version: "3"
 services:
+
   hub:
     image: selenium/hub:3.141.0
     ports:
@@ -37,41 +38,31 @@ services:
     volumes:
       - /dev/shm:/dev/shm
 
-
-
-
-  test_1-module:
-    build:
-      context: ../module1/
-      dockerfile: ../module1/Dockerfile.test
-      
+  test_1:
+    image: myimage:latest
     depends_on:
-      - hub 
-      - firefox
-      - chrome
-
+    - hub 
+    - firefox
+    - chrome
     environment:
-      - HUB_HOST=hub
-      - BROWSER=chrome
-      - MODULE=test_1.py
+    - HUB_HOST=hub
+    - BROWSER=chrome
+    - MODULE=test_1.py
     volumes:
-      - ../module1/:/usr/app/
-   
-  test_2-module:
-    build:
-      context: ../module2
-      dockerfile: ../module2/Dockerfile.test
-      
+      - ./test_1:/usr/app/
+  test_2:
+    image: myimage:latest
     depends_on:
-      - hub 
-      - firefox
-      - chrome
-
+    - hub 
+    - firefox
+    - chrome
     environment:
-      - HUB_HOST=hub
-      - BROWSER=firefox
-      - MODULE=test_2.py
+    - HUB_HOST=hub
+    - BROWSER=firefox
+    - MODULE=test_2.py
     volumes:
-      - ../module2:/usr/app
+      - ./test_2:/usr/app/
+
+
 
 
