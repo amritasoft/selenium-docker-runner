@@ -39,7 +39,7 @@ services:
       - /dev/shm:/dev/shm
 
   test_1:
-    image: myimage:latest
+    image: C:\ProgramData\DockerDesktop\vm-data\myimage:latest
     depends_on:
     - hub 
     - firefox
