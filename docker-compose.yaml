@@ -42,6 +42,10 @@ services:
     image: myimage:latest
     depends_on:
     - hub 
+    image: myimage:latest
+    depends_on:
+    - hub 
+    - firefox
     - firefox
     - chrome
     environment:
@@ -49,19 +53,15 @@ services:
     - BROWSER=chrome
     - MODULE=test_1.py
     volumes:
-      - .:/usr/app/
+      - ../test_1:/usr/app/test_1
   test_2:
-    image: myimage:latest
-    depends_on:
-    - hub 
-    - firefox
     - chrome
     environment:
     - HUB_HOST=hub
     - BROWSER=firefox
     - MODULE=test_2.py
     volumes:
-      - ./test_2:/usr/app/
+      - ../test_2:/usr/app/test_2
 
 
 
